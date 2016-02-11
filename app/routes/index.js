@@ -15,11 +15,19 @@ module.exports = function (app) {
 
 	//var clickHandler = new ClickHandler();
 
-	app.route('/')
+	app.route('/:timestamp')
 		.get(function (req, res) {
-			res.send('Hello world!');
+			let inDate = new Date(Date.parse(req.params.timestamp));
+			let outDate = new Object();
+			outDate.unix = inDate.getTime()/1000;
+			outDate.natural = inDate.toDateString();
+			res.send(outDate);
 		});
 
+	app.route('/')
+		.get(function (req, res) {
+			res.sendFile(path + '/public/index.html');
+		});
 	// app.route('/login')
 	// 	.get(function (req, res) {
 	// 		res.sendFile(path + '/public/login.html');
