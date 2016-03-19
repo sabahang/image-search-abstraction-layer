@@ -1,29 +1,13 @@
 'use strict';
 
 var path = process.cwd();
-//var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
+var searchController = require(path + '/app/controllers/searchController.server.js');
 
 module.exports = function (app) {
 
-	// function isLoggedIn (req, res, next) {
-	// 	if (req.isAuthenticated()) {
-	// 		return next();
-	// 	} else {
-	// 		res.redirect('/login');
-	// 	}
-	// }
-
-	//var clickHandler = new ClickHandler();
-
-	app.route('/:timestamp')
-		.get(function (req, res) {
-			let inDate = new Date(Date.parse(req.params.timestamp));
-			let outDate = new Object();
-			outDate.unix = inDate.getTime()/1000;
-			outDate.natural = inDate.toDateString();
-			res.send(outDate);
-		});
-
+	app.route('/api/imagesearch/:keyword')
+		.get(searchController.search);
+		
 	app.route('/')
 		.get(function (req, res) {
 			res.sendFile(path + '/public/index.html');
