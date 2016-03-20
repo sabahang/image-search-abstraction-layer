@@ -5,11 +5,7 @@ var express = require('express');
 var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
 
-
-
 var app = express();
-
-
 
 
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));

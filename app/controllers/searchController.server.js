@@ -7,8 +7,6 @@ var Image = require('../models/image.js');
 var Result = require('../models/result.js');
 
 
-
-
 exports.search = function(req, res){
   googleSearch(req, res);
 
@@ -55,7 +53,7 @@ function saveLastResult(images, term) {
 	var result = new Result();
 	result.timestamp = new Date();
 	result.term = term;
-	//console.log(images);
+
 	result.images.push.apply(result.images,images);
 	result.save(function (err) {
     if (err) console.warn("Couldn't save the result to DB!");

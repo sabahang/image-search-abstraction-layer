@@ -14,14 +14,20 @@
 
 	<body>
 		<div class="container">
-			<h1>The Timestamp Microserver</h1>
-			<p>This simple app is made for a FreeCodeCamp code challenge: <a href='http://www.freecodecamp.com/challenges/timestamp-microservice'>Link to FCC</a></p>
-			<p>Server is supposed to parse the Date string you send it as input and return Unix timestamp and Human readable time format, if the parameter is not pars-able, you'll get null</p>
+			<h1>Image Search Abstraction Layer</h1>
+			<p>This simple app is made for a FreeCodeCamp code challenge: <a href='https://www.freecodecamp.com/challenges/image-search-abstraction-layer'>Link to FCC</a></p>
 			<h1>Examples:</h1>
-			<pre>https://timestamp-microserver-sabahang.c9users.io/December%2015,%202015</pre>
-			<pre>https://timestamp-microserver-sabahang.c9users.io/1450137600</pre>
-			<h1>Examples Output:</h1>
-			<pre>{ "unix": 1450137600, "natural": "December 15, 2015" }</pre>
+			<pre>https://image-search-microserver.herokuapp.com/api/imagesearch/malakh</pre>
+			<pre>https://image-search-microserver.herokuapp.com/api/imagesearch/malakh?offset=3</pre>
+			<pre>https://image-search-microserver.herokuapp.com/api/history</pre>
+			<h1>Other info:</h1>
+			<ul>
+				<li>History is limited to 10 records. Older ones get replaced</li>
+				<li>Each page (offset) returns 10 results.</li>
+				<li>You are using my private Google Api key which is limited to 100 request per day, please don't exploit it.</li>
+				<li>Repository: <a href='https://github.com/sabahang/image-search-abstraction-layer'>https://github.com/sabahang/image-search-abstraction-layer</a></li>
+				<li>My info: Saba Ahang, email: sabaahang@gmail.com, twitter: <a href='https://twitter.com/SabaAhang'>https://twitter.com/SabaAhang</a></li>
+			</ul>
 		</div>
 	</body>
 
