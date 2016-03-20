@@ -1,15 +1,14 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-     Schema = mongoose.Schema,
-     mongoosePaginate = require('mongoose-paginate');
+     Schema = mongoose.Schema;
 
 var Image = new Schema({
     url: String,
     snippet: String,
     thumbnail: String,
     context: String
-});
+},{ _id : false });
 
-Image.plugin(mongoosePaginate);
+
 module.exports = mongoose.model('Image', Image);

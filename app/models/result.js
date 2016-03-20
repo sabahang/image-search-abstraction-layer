@@ -1,14 +1,14 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-        Image = require('./image.js'),
+        
         Schema = mongoose.Schema,
-        mongoosePaginate = require('mongoose-paginate');
+        Image = require('./image.js').schema;
 
 var Result = new Schema({
     timestamp: Date,
+    term: String,
     images: [Image]
-});
+}, { capped: { size: 5242880, max: 10, _id : false }});
 
-Result.plugin(mongoosePaginate);
 module.exports = mongoose.model('Result', Result);
