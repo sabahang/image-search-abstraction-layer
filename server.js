@@ -16,15 +16,16 @@ app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/common', express.static(process.cwd() + '/app/common'));
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-  mongoose.connect(process.env.MONGO_URI );
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler()); 
-  mongoose.connect(process.env.MONGOLAB_URI);
-});
+switch (app.get('env')){
+    case 'development':
+        console.log( 'Loading development configuration...' );
+        mongoose.connect(process.env.MONGO_URI );
+        break;
+    case 'production':
+        console.log( 'Loading production configuration...' );
+        mongoose.connect(process.env.MONGOLAB_URI);
+        break;
+}
 
 routes(app);
 
